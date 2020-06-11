@@ -89,8 +89,7 @@ header .link-icons a span {
 }
 main .featured {
 	display: flex;
-	flex-direction: column;
-	background-image: url(imgs/featured-image.jpg);
+	flex-direction: column;	
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 500px;
@@ -272,9 +271,9 @@ main .cart table .img {
 	width: 80px;
 }
 main .cart table .remove {
-	color: #777777;
-	font-size: 12px;
-	padding-top: 3px;
+	color: #df0c0c;
+	font-size: 14px;
+	padding-top: 4px;
 }
 main .cart table .remove:hover {
 	text-decoration: underline;
