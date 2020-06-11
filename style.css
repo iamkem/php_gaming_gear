@@ -90,9 +90,6 @@ header .link-icons a span {
 main .featured {
 	display: flex;
 	flex-direction: column;	
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 500px;
 	align-items: center;
 	justify-content: center;
 	text-align: center;

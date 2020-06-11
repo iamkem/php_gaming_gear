@@ -1,6 +1,6 @@
 <?php
 function pdo_connect_mysql() {
-    // Update the details below with your MySQL details
+    // Cấu hình Database
     $DATABASE_HOST = 'localhost';
     $DATABASE_USER = 'root';
     $DATABASE_PASS = '';
@@ -8,13 +8,13 @@ function pdo_connect_mysql() {
     try {
     	return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
     } catch (PDOException $exception) {
-    	// If there is an error with the connection, stop the script and display the error.
+    	// In ra lỗi nếu kết nối không thành công
     	die ('Failed to connect to database!');
     }
 }
-// Template header, feel free to customize this
+// Template header
 function template_header($title) {
-    // Get the amount of items in the shopping cart, this will be displayed in the header.
+    // Lấy số lượng sản phẩm ở shopping cart, hiển thị số lượng sp trên header
 $num_items_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
 echo <<<EOT
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ echo <<<EOT
         </main>
         <footer>
             <div class="content-wrapper">
-                <p>&copy; $year, Shopping Cart System</p>
+                <p>&copy; $year, Hoàng Đình Thắng Lợi - Phan Văn Hòa - Văn Đức Tiến Sỹ</p>
             </div>
         </footer>
         <script src="script.js"></script>
