@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 11, 2020 lúc 07:17 PM
+-- Thời gian đã tạo: Th6 12, 2020 lúc 07:57 AM
 -- Phiên bản máy phục vụ: 10.4.8-MariaDB
 -- Phiên bản PHP: 7.3.11
 
@@ -51,7 +51,11 @@ INSERT INTO `products` (`id`, `name`, `desc`, `price`, `rrp`, `quantity`, `img`,
 (5, 'Dualshock 4 White', '', '60.00', '0.00', 1, 'dualshock4white.jpg', '2020-06-11 22:32:57'),
 (6, 'Game Pad Mocute', '', '20.00', '0.00', 5, 'gamepad_MOCUTE_050.jpg', '2020-06-11 23:04:19'),
 (7, 'RGB Gaming Mouse HXSJ S500 ', '✅ Chế độ ánh sáng: hiệu ứng RGB marquee, dưới cùng của con chuột với một nút chuyển đổi ánh sáng.\r\n✅ DPI 12 cấp có thể điều chỉnh, Tối đa 4.800 DPI\r\n✅ Điện áp / dòng điện: DC 5V / 100mA\r\n✅ 20 triệu click\r\n✅ Chiều dài cáp: 150cm\r\n✅ Dễ dàng sử dụng ', '10.00', '0.00', 4, 'HXSJ_S500.jpeg', '2020-06-11 23:08:17'),
-(8, 'Headphone Gaming Bosston HS300 LED', 'Kiểu dáng cá tính, nổi bật\r\nThiết kế lớp đệm chụp tai êm ái, thoải mái\r\nHệ thống đèn LED tự chuyển màu ấn tượng\r\nChất lượng âm thanh sống động, trung thực\r\nKết nối qua jack cắm 3.5mm hoặc cổng USB tiện lợi', '20.00', '0.00', 5, 'hs300.jpg', '2020-06-11 23:12:26');
+(8, 'Headphone Gaming Bosston HS300 LED', 'Kiểu dáng cá tính, nổi bật\r\nThiết kế lớp đệm chụp tai êm ái, thoải mái\r\nHệ thống đèn LED tự chuyển màu ấn tượng\r\nChất lượng âm thanh sống động, trung thực\r\nKết nối qua jack cắm 3.5mm hoặc cổng USB tiện lợi', '20.00', '0.00', 5, 'hs300.jpg', '2020-06-11 23:12:26'),
+(9, 'Game Pad Pubg 60x30cm', '', '7.00', '0.00', 3, 'lot-chuot-pubg-60x30cm.jpg', '2020-06-12 11:21:32'),
+(10, 'IPEGA PG-9017S', '', '10.00', '0.00', 4, 'ipega9017s.jpg', '2020-06-12 11:22:33'),
+(11, 'Joysticks mini', '', '0.99', '0.00', 10, 'joystick-mini.jpg', '2020-06-12 11:24:09'),
+(12, 'Game Pad Pubg 70x30cm', '', '6.00', '0.00', 2, 'lot-chuot-pubg-70x30cm.jpg', '2020-06-12 11:24:55');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -71,7 +75,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
