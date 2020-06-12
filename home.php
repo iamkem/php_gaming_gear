@@ -6,32 +6,41 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <?= template_header('Home') ?>
+<div class="featured">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-<div id="demo" class="carousel slide featured" data-ride="carousel">
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="imgs/banner-01.jpg" alt="Los Angeles" width="1700" height="560">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="imgs/banner-01.jpg" alt="Los Angeles" width="1440" height="560">
+      </div>
+
+      <div class="item">
+        <img src="imgs/banner-02.jpg" alt="Chicago" width="1440" height="560">
+      </div>
+
+      <div class="item">
+        <img src="imgs/banner-03.jpg" alt="New york" width="1440" height="560">
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="imgs/banner-02.jpg" alt="Chicago" width="1700" height="560">
-    </div>
-    <div class="carousel-item">
-      <img src="imgs/banner-03.jpg" alt="New York" width="1700" height="560">
-    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="icon-prev" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="icon-next" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
 </div>
-
 <div class="recentlyadded content-wrapper">
   <h2>Những sản phẩm nổi bật gần đây</h2>
   <div class="products">
