@@ -6,6 +6,7 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <?= template_header('Home') ?>
+<!-- Banner -->
 <div class="featured">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -41,17 +42,19 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </a>
   </div>
 </div>
+<!-- Banner -->
+
 <div class="recentlyadded content-wrapper">
-  <h2>Những sản phẩm nổi bật gần đây</h2>
+  <h2>Những sản phẩm nổi bật</h2>
   <div class="products">
     <?php foreach ($recently_added_products as $product) : ?>
       <a href="index.php?page=product&id=<?= $product['id'] ?>" class="product">
         <img src="imgs/<?= $product['img'] ?>" width="200" height="200" alt="<?= $product['name'] ?>">
         <span class="name"><?= $product['name'] ?></span>
         <span class="price">
-          &dollar;<?= $product['price'] ?>
+          <?= number_format($product['price']) ?>₫                                
           <?php if ($product['rrp'] > 0) : ?>
-            <span class="rrp">&dollar;<?= $product['rrp'] ?></span>
+            <span class="rrp"><?= number_format($product['rrp']) ?>₫</span>
           <?php endif; ?>
         </span>
       </a>

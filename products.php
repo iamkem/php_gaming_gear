@@ -27,9 +27,9 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
             <img src="imgs/<?=$product['img']?>" width="200" height="200" alt="<?=$product['name']?>">
             <span class="name"><?=$product['name']?></span>
             <span class="price">
-                &dollar;<?=$product['price']?>
+                <?=number_format($product['price'])?>₫
                 <?php if ($product['rrp'] > 0): ?>
-                <span class="rrp">&dollar;<?=$product['rrp']?></span>
+                <span class="rrp"><?=number_format($product['rrp'])?>₫</span>
                 <?php endif; ?>
             </span>
         </a>
