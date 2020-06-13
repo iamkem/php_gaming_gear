@@ -19,8 +19,8 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
 <?=template_header('Products')?>
 
 <div class="products content-wrapper">
-    <h1>Products</h1>
-    <p><?=$total_products?> Products</p>
+    <h1>Sản Phẩm</h1>
+    <p><?=$total_products?> Sản Phẩm</p>
     <div class="products-wrapper">
         <?php foreach ($products as $product): ?>
         <a href="index.php?page=product&id=<?=$product['id']?>" class="product">
