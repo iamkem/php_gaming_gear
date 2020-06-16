@@ -27,29 +27,34 @@ $stmt->close();
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Profile Page</title>
+		<title>Hồ sơ</title>
 		<link href="admin.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1>Website Title</h1>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+				<div>
+				<a href="home.php">
+                    <h1>ADMIN</h1>
+				</a>
+				</div>
+				<div>
+				<a href="profile.php"><i class="fas fa-user-circle"></i>Hồ sơ</a>
+				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
+				</div>
 			</div>
 		</nav>
 		<div class="content">
-			<h2>Profile Page</h2>
-			<div>
-				<p>Your account details are below:</p>
+			<h2>Hồ sơ</h2>
+			<div>				
 				<table>
 					<tr>
-						<td>Username:</td>
+						<td>Tên tài khoản:</td>
 						<td><?=$_SESSION['name']?></td>
 					</tr>
 					<tr>
-						<td>Password:</td>
+						<td>Mật khẩu:</td>
 						<td><?=$password?></td>
 					</tr>
 					<tr>

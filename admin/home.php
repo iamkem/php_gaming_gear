@@ -8,27 +8,29 @@ if (!isset($_SESSION['loggedin'])) {
 }
 ?>
 
+<?php
+include 'adminfunctions.php';
+// Connect to MySQL database
+$pdo = pdo_connect_mysql();
+// Get the page via GET request (URL param: page), if non exists default the page to 1
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int) $_GET['page'] : 1;
+// Number of records to show on each page
+$records_per_page = 5;
 
+// Prepare the SQL statement and get records from our contacts table, LIMIT will determine the page
+$stmt = $pdo->prepare('SELECT * FROM products ORDER BY id LIMIT :current_page, :record_per_page');
+$stmt->bindValue(':current_page', ($page - 1) * $records_per_page, PDO::PARAM_INT);
+$stmt->bindValue(':record_per_page', $records_per_page, PDO::PARAM_INT);
+$stmt->execute();
+// Fetch the records so we can display them in our template.
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Get the total number of contacts, this is so we can determine whether there should be a next and previous button
+$num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
+?>
 
-<!DOCTYPE html>
-<html>
+<?=template_header('ADMIN')?>
 
-<head>
-	<meta charset="utf-8">
-	<title>Home Page</title>
-	<link href="admin.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-</head>
-
-<body class="loggedin">
-	<nav class="navtop">
-		<div>
-			<h1>ADMIN</h1>
-			<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-			<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
-		</div>
-	</nav>
-	<div class="content">
+<div class="content">
 		<!-- <aside class="responsive-width-100 responsive-hidden">
 				<a href="#">
 					<i class="fas fa-box-open"></i>
@@ -36,20 +38,20 @@ if (!isset($_SESSION['loggedin'])) {
 				</a>
 			</aside> -->
 		<main class="responsive-width-100">
-			<h2>Products</h2>
-			<div class="links"><a href="#">Create Product</a></div>
+			<h2>Sản phẩm</h2>
+			<div class="links"><a href="create.php">Thêm sản phẩm</a></div>
 			<div class="content-block">
 				<div class="table">
 					<table>
 						<thead>
 							<tr>
 								<td>#</td>
-								<td>Name</td>
-								<td>Price</td>
+								<td>Tên</td>
+								<td>Giá</td>
 								<td>RRP</td>
-								<td>Quantity</td>
-								<td>Images</td>
-								<td>Created</td>
+								<td>Số lượng</td>
+								<td>Hình ảnh</td>
+								<td>Ngày thêm</td>
 								<td></td>
 							</tr>
 						</thead>
@@ -58,10 +60,10 @@ if (!isset($_SESSION['loggedin'])) {
 								<tr>
 									<td><?= $products['id'] ?></td>
 									<td><?= $products['name'] ?></td>
-									<td><?= $products['price'] ?></td>
+									<td><?= number_format($products['price']) ?>₫</td>
 									<td><?= $products['rrp'] ?></td>
 									<td><?= $products['quantity'] ?></td>
-									<td><?= $products['img'] ?></td>
+									<td><img src="../imgs/<?= $products['img'] ?>" width="50" height="50" alt="<?= $products['name'] ?>"></td>
 									<td><?= $products['date_added'] ?></td>
 									<td class="actions">
 										<a href="update.php?id=<?= $products['id'] ?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
@@ -71,10 +73,17 @@ if (!isset($_SESSION['loggedin'])) {
 							<?php endforeach; ?>
 						</tbody>
 					</table>
+					<div class="pagination">
+						<?php if ($page > 1) : ?>
+							<a href="home.php?page=<?= $page - 1 ?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
+						<?php endif; ?>
+						<?php if ($page * $records_per_page < $num_products) : ?>
+							<a href="home.php?page=<?= $page + 1 ?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
+						<?php endif; ?>
+					</div>
 				</div>
 			</div>
 		</main>
 	</div>
-</body>
 
-</html>
+	<?=template_footer()?>

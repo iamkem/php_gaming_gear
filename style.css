@@ -82,9 +82,6 @@ header nav a {
 	padding: 10px 10px;
 	margin: 0 10px;
 }
-header nav a:hover {
-	border-bottom: 1px solid #aaa;
-}
 header .link-icons {
 	display: flex;
 	flex-grow: 1;

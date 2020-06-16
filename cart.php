@@ -112,7 +112,7 @@ if ($products_in_cart) {
                 <?php else: ?>
                 <?php foreach ($products as $product): ?>
                 <tr>
-                    <td class="img">
+                <td class="img">
                         <a href="index.php?page=product&id=<?=$product['id']?>">
                             <img src="imgs/<?=$product['img']?>" width="50" height="50" alt="<?=$product['name']?>">
                         </a>
