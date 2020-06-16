@@ -142,3 +142,32 @@ aside a {
     padding: 15px;
     border-bottom: 1px solid #1a1b1d;
 }
+main .links {
+    display: flex;
+    flex-flow: wrap;
+    padding-top: 20px;
+}
+main .links a {
+    display: inline-flex;
+    text-decoration: none;
+    background: #4e5c70;
+    color: #fff;
+    padding: 12px 15px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+main .content-block {
+    background-color: #fff;
+    margin-top: 25px;
+    padding: 15px;
+}
+main .table table {
+    padding: 0 10px;
+    width: 100%;
+    border-collapse: collapse;
+}
+main .table table thead td {
+    font-weight: 600;
+    padding: 15px 0;
+}
